@@ -1,0 +1,14 @@
+# Metros, Z vertical
+mtllib bancada.mtl
+o Tampo
+v 0 0 0.9
+v 1.2 0 0.9
+v 1.2 0.6 0.9
+v 0 0.6 0.9
+usemtl Madeira
+f 1 2 3 4
+o Lateral
+v 0 0 0
+v 0 0.6 0
+usemtl Metal
+f 5 1 4 6

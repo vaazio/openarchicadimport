@@ -1,0 +1,27 @@
+include(FetchContent)
+if(POLICY CMP0135)
+    cmake_policy(SET CMP0135 NEW)
+endif()
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE BOOL "" FORCE)
+set(ASSIMP_BUILD_ALL_IMPORTERS_BY_DEFAULT OFF CACHE BOOL "" FORCE)
+set(ASSIMP_NO_EXPORT ON CACHE BOOL "" FORCE)
+set(ASSIMP_INSTALL OFF CACHE BOOL "" FORCE)
+set(ASSIMP_WARNINGS_AS_ERRORS OFF CACHE BOOL "" FORCE)
+foreach(formato OBJ STL FBX COLLADA GLTF)
+    set(ASSIMP_BUILD_${formato}_IMPORTER ON CACHE BOOL "" FORCE)
+endforeach()
+FetchContent_Declare(assimp
+    URL https://github.com/assimp/assimp/archive/refs/tags/v6.0.2.tar.gz
+    URL_HASH SHA256=d1822d9a19c9205d6e8bc533bf897174ddb360ce504680f294170cc1d6319751
+    DOWNLOAD_DIR "${CMAKE_BINARY_DIR}/downloads"
+)
+FetchContent_MakeAvailable(assimp)
+target_compile_definitions(CMakeTarget PRIVATE NOMINMAX)
+target_sources(CMakeTarget PRIVATE interface/selecao.rc)
+FetchContent_Declare(meshoptimizer GIT_REPOSITORY https://github.com/zeux/meshoptimizer.git GIT_TAG v0.24 GIT_SHALLOW TRUE)
+FetchContent_Declare(json GIT_REPOSITORY https://github.com/nlohmann/json.git GIT_TAG v3.12.0 GIT_SHALLOW TRUE)
+FetchContent_MakeAvailable(meshoptimizer json)
+target_link_libraries(CMakeTarget assimp meshoptimizer nlohmann_json::nlohmann_json comdlg32 user32 crypt32)
+target_include_directories(CMakeTarget PRIVATE "${assimp_SOURCE_DIR}/contrib/earcut-hpp")

@@ -1,0 +1,10 @@
+#include "ResourceIds.hpp"
+
+'STR#' ID_ADDON_INFO "Importador" {
+    "OPENARCHICADIMPORT"
+    "Converte malhas em um objeto de biblioteca."
+}
+'STR#' ID_ADDON_MENU "Menu" {
+    "Importar modelo 3D (*.*)... ^E3 ^ES ^EE ^EI ^ED ^ET"
+    "Importar modelo 3D com selecao simples... ^E3 ^ES ^EE ^EI ^ED ^ET"
+}

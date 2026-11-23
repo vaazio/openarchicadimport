@@ -1,0 +1,5 @@
+build/
+previa/node_modules/
+__pycache__/
+*.pyc
+.vs/
