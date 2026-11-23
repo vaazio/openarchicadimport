@@ -1,5 +1,9 @@
 # OPENARCHICADIMPORT para Archicad 30 no Windows
 
+## Licença
+
+O código próprio deste projeto está disponibilizado sob a GNU General Public License versão 3.0, conforme o arquivo [LICENSE](LICENSE). Componentes de terceiros mantêm suas próprias licenças. O Archicad e o DevKit da Graphisoft são proprietários e não estão incluídos nesta licença. A compatibilidade dos termos do DevKit e a distribuição de binários ainda precisam ser verificadas antes de uma publicação.
+
 O comando **Importar modelo 3D (\*.\*)...** cria um objeto na biblioteca interna do projeto. A árvore mostra o nome de cada peça. Passe o mouse sobre o nome para ver o caminho da malha. Instâncias podem ser incluídas separadamente. O leitor Assimp está configurado para OBJ, STL, FBX, DAE (COLLADA), glTF e GLB. Mantenha arquivos auxiliares, como .mtl e .bin, junto ao modelo nas pastas indicadas por ele.
 
 ## Compilar e carregar
